@@ -5,8 +5,8 @@ from sanitize_input import sanitize
 
 def sumOfPrimes(number):
     """
-        Time complexity: ???
-        Space complexity: ???
+        Time complexity: O(n^2)
+        Space complexity: O(n^2)
 
         Please do not use on numbers larger than 850. It takes too long.
     """
@@ -80,7 +80,6 @@ def sumOfPrimes(number):
 
     # return a single solution from the solution set otherwise return no solution.
     return list(list(solutions)[0]) if len(solutions) else "NO SOLUTION based on the restrictions"
-
 
 if __name__ == "__main__":
     number = sys.argv[1]

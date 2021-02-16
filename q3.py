@@ -3,8 +3,8 @@ from sanitize_input import sanitize
 
 def isAnagram(a,b,x):
     """
-        Time complexity: ???
-        Space complexity: ???
+        Time complexity: O(n)
+        Space complexity: O(n)
     """
     # sanitize x to ensure it's a number.
     test1 = sanitize(x, 1)

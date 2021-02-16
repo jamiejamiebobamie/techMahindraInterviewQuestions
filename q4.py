@@ -3,8 +3,8 @@ from sanitize_input import sanitize
 
 def highestSumList(lst):
     """
-        Time complexity: ???
-        Space complexity: ???
+        Time complexity: O(n^2)
+        Space complexity: O(n^2)
     """
     # sanitize the input to ensure it's a 2-D array.
     test1 = sanitize(lst, [])
@@ -14,7 +14,6 @@ def highestSumList(lst):
         test2 = sanitize(lst[0],[])
     if not test2:
          return "Input must be 2-D array."
-
 
     max_sums = {}
     def recursion(row,col,indices):
