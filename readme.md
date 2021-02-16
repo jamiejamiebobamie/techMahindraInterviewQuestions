@@ -118,7 +118,7 @@ Implement a method that gets the above structure in a 2-D array (zero padded), a
 The above example will be passed to this method like below:
 [
     [1, 0, 0, 0]
-    [2, 5, 0, 0]
+    [9, 5, 0, 0]
     [3, 2, 1, 0]
     [1, 3, 2, 1]
 ]

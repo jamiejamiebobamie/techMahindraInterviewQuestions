@@ -1,16 +1,25 @@
 import sys
 from sanitize_input import sanitize
 
+
+# odds = n
+# evens = n - 1
+# 1,0,1,0,0,1
+
+# 1,1,1,0,1
+
+# remove condition if too few evens.
+
 def distantODDNumbers(array):
     """
         Time complexity: ???
         Space complexity: ???
     """
     # sanitize the input to ensure it's an array.
-    test = sanitize(unsorted_array, sorted)
+    test = sanitize(array, sorted)
     if not test:
         return "Parameter must be an array."
-
+        
     # initialize a lookup dictionary of odd numbers and their indices.
         # odd_index : odd_number
     record_odds = {}
@@ -23,7 +32,7 @@ def distantODDNumbers(array):
     even_count = len(array) - len(record_odds)
     # determine if there are enough even numbers to separate odd numbers
     if required_evens > even_count:
-        return "Not enough evens to separate odds."
+        return array
     # ensure that the last item of the array is an odd number as this is always
         # the case (as is the first item.)
     # initialize an array of all of the odd indices

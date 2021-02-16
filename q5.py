@@ -10,6 +10,7 @@ def sumOfPrimes(number):
 
         Please do not use on numbers larger than 850. It takes too long.
     """
+    
     # helper function.
     def build_primes(n):
         for i in range(3,n+1):
@@ -23,7 +24,7 @@ def sumOfPrimes(number):
                         break
                 # if no _prime could evenly divide it, it's a new prime!
                 if not_divisible:
-                    _primes.add(i)
+                    _primes.append(i)
 
     # initialize a set of solutions.
     solutions = set()
@@ -60,14 +61,16 @@ def sumOfPrimes(number):
         add_primes(deep_copy_remaining_primes, deep_copy_current_sums)
 
     # sanitize the input to ensure it's a number.
-    number = sanitize(number, int, "Parameter must be a number.")
+    number = sanitize(number, int)
+    if number == None:
+        return "Parameter must be a number."
 
     # the lowest prime number is 2.
     if number < 2:
         return "Please enter an integer number larger than 1."
 
     # initialize a set of primes.
-    _primes = set([2])
+    _primes = [2]
     # build the set.
     build_primes(number)
 
@@ -76,7 +79,7 @@ def sumOfPrimes(number):
     add_primes(sorted_primes, [])
 
     # return a single solution from the solution set otherwise return no solution.
-    return list(solutions)[0] if len(solutions) else "NO SOLUTION based on the restrictions"
+    return list(list(solutions)[0]) if len(solutions) else "NO SOLUTION based on the restrictions"
 
 
 if __name__ == "__main__":

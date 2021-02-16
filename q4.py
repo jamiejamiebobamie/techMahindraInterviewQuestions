@@ -7,7 +7,9 @@ def highestSumList(lst):
         Space complexity: ???
     """
     # sanitize the input to ensure it's an array.
-    sanitize(lst, sorted, "Parameter must be an array.")
+    test = sanitize(lst, sorted)
+    if test == None:
+         return "Input must be 2-D array."
 
     max_sums = {}
     def recursion(row,col,indices):
@@ -40,7 +42,7 @@ def highestSumList(lst):
             _max_k = k
             _max_v = v
 
-    return _max_k
+    return list(_max_k)
 
 if __name__ == "__main__":
     array = [int(string) for string in sys.argv[1:]]

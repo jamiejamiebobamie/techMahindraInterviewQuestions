@@ -6,4 +6,6 @@ def sanitize(input, test):
         return
     except TypeError as te:
         return
+    except AttributeError as ae:
+        return
     return input

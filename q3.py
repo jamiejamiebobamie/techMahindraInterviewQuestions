@@ -1,5 +1,6 @@
 import sys
 from sanitize_input import sanitize
+import string
 
 def isAnagram(a,b,x):
     """
@@ -8,19 +9,21 @@ def isAnagram(a,b,x):
     """
     # sanitize x to ensure it's a number.
     x = sanitize(x, int)
-    if not x:
-        print("Third Parameter must be a number.")
+    if x == None:
+        return "Third parameter must be a number."
     # sanitize x to ensure it's a number.
-    a = sanitize(a, lower, "Parameter must be a string.")
-    if not x:
-        print("Parameter must be a number.")
+    a = sanitize(a, string.lower)
+    if a == None:
+        return "First parameter must be a number."
     # sanitize x to ensure it's a number.
-    b = sanitize(b, lower, "Parameter must be a string.")
+    b = sanitize(b, string.lower)
+    if b == None:
+        return "Second parameter must be a number."
 
     # normalize x to be a number between 0 and 25
     if x < 0:
         if x > -27:
-            x = 26 + x
+            x = 26 + x # i don't need this... ?
         else:
             x %= 26
     elif x > 25:
@@ -32,15 +35,18 @@ def isAnagram(a,b,x):
     shifted_a = []
     for letter in a:
         index = index_lookup[letter]
+        index += x
+        index %= 26
         shifted_letter = alpha_lookup[index]
         shifted_a.append(shifted_letter)
 
     shifted_b = []
     for letter in b:
         index = index_lookup[letter]
+        index += x
+        index %= 26
         shifted_letter = alpha_lookup[index]
         shifted_b.append(shifted_letter)
-
 
     sorted_array_a = sorted(list(a))
     sorted_array_b = sorted(list(b))
@@ -50,6 +56,10 @@ def isAnagram(a,b,x):
     return True if (shifted_sorted_array_a == sorted_array_b
                     or sorted_array_a == shifted_sorted_array_b
                     or shifted_sorted_array_a == shifted_sorted_array_b) else False
+    #
+    # return True if ("".join(shifted_sorted_array_a) == "".join(sorted_array_b)
+    #                 or "".join(sorted_array_a) == "".join(shifted_sorted_array_b)
+    #                 or "".join(shifted_sorted_array_a) == "".join(shifted_sorted_array_b)) else False
 
 if __name__ == "__main__":
     a,b,x = sys.argv[1], sys.argv[2], sys.argv[3]
