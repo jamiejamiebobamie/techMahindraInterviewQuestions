@@ -1,8 +1,14 @@
+import sys
+from sanitize_input import sanitize
+
 def highestSumList(lst):
     """
         Time complexity: ???
         Space complexity: ???
     """
+    # sanitize the input to ensure it's an array.
+    sanitize(lst, sorted, "Parameter must be an array.")
+
     max_sums = {}
     def recursion(row,col,indices):
         # the bounds on this may be wrong...
@@ -35,3 +41,7 @@ def highestSumList(lst):
             _max_v = v
 
     return _max_k
+
+if __name__ == "__main__":
+    array = [int(string) for string in sys.argv[1:]]
+    print(highestSumList(array))

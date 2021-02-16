@@ -1,8 +1,22 @@
+import sys
+from sanitize_input import sanitize
+
 def isAnagram(a,b,x):
     """
         Time complexity: ???
         Space complexity: ???
     """
+    # sanitize x to ensure it's a number.
+    x = sanitize(x, int)
+    if not x:
+        print("Third Parameter must be a number.")
+    # sanitize x to ensure it's a number.
+    a = sanitize(a, lower, "Parameter must be a string.")
+    if not x:
+        print("Parameter must be a number.")
+    # sanitize x to ensure it's a number.
+    b = sanitize(b, lower, "Parameter must be a string.")
+
     # normalize x to be a number between 0 and 25
     if x < 0:
         if x > -27:
@@ -36,3 +50,7 @@ def isAnagram(a,b,x):
     return True if (shifted_sorted_array_a == sorted_array_b
                     or sorted_array_a == shifted_sorted_array_b
                     or shifted_sorted_array_a == shifted_sorted_array_b) else False
+
+if __name__ == "__main__":
+    a,b,x = sys.argv[1], sys.argv[2], sys.argv[3]
+    print(isAnagram(a,b,x))
