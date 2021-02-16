@@ -6,10 +6,15 @@ def highestSumList(lst):
         Time complexity: ???
         Space complexity: ???
     """
-    # sanitize the input to ensure it's an array.
-    test = sanitize(lst, sorted)
-    if test == None:
+    # sanitize the input to ensure it's a 2-D array.
+    test1 = sanitize(lst, [])
+    if not test1:
          return "Input must be 2-D array."
+    if len(lst):
+        test2 = sanitize(lst[0],[])
+    if not test2:
+         return "Input must be 2-D array."
+
 
     max_sums = {}
     def recursion(row,col,indices):

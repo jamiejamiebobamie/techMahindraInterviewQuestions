@@ -7,11 +7,12 @@ def funnySort(unsorted_array):
         Space complexity: O(n)
     """
 
-    # sanitize the input to ensure it's an array as well as sort it if it is.
-    sorted_array = sanitize(unsorted_array, sorted)
-    if not sorted_array:
-        return "Parameter must be a string or an array."
+    # sanitize the input to ensure it's an array.
+    test = sanitize(unsorted_array, [])
+    if not test:
+        return "Parameter must be an array."
 
+    sorted_array = sorted(unsorted_array)
     # ensure array has at least two elements
     if len(sorted_array) < 2:
         return sorted_array

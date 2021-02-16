@@ -10,7 +10,7 @@ def sumOfPrimes(number):
 
         Please do not use on numbers larger than 850. It takes too long.
     """
-    
+
     # helper function.
     def build_primes(n):
         for i in range(3,n+1):
@@ -61,8 +61,8 @@ def sumOfPrimes(number):
         add_primes(deep_copy_remaining_primes, deep_copy_current_sums)
 
     # sanitize the input to ensure it's a number.
-    number = sanitize(number, int)
-    if number == None:
+    test = sanitize(number, 1)
+    if not test:
         return "Parameter must be a number."
 
     # the lowest prime number is 2.

@@ -16,10 +16,10 @@ def distantODDNumbers(array):
         Space complexity: ???
     """
     # sanitize the input to ensure it's an array.
-    test = sanitize(array, sorted)
+    test = sanitize(array, [])
     if not test:
         return "Parameter must be an array."
-        
+
     # initialize a lookup dictionary of odd numbers and their indices.
         # odd_index : odd_number
     record_odds = {}

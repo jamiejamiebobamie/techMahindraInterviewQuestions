@@ -1,6 +1,5 @@
 import sys
 from sanitize_input import sanitize
-import string
 
 def isAnagram(a,b,x):
     """
@@ -8,22 +7,22 @@ def isAnagram(a,b,x):
         Space complexity: ???
     """
     # sanitize x to ensure it's a number.
-    x = sanitize(x, int)
-    if x == None:
+    test1 = sanitize(x, 1)
+    if not test1:
         return "Third parameter must be a number."
-    # sanitize x to ensure it's a number.
-    a = sanitize(a, string.lower)
-    if a == None:
+    # sanitize a to ensure it's a string.
+    test2 = sanitize(a, "")
+    if not test2:
         return "First parameter must be a number."
-    # sanitize x to ensure it's a number.
-    b = sanitize(b, string.lower)
-    if b == None:
+    # sanitize b to ensure it's a string.
+    test2 = sanitize(b, "")
+    if not test2:
         return "Second parameter must be a number."
 
     # normalize x to be a number between 0 and 25
     if x < 0:
         if x > -27:
-            x = 26 + x # i don't need this... ?
+            x = 26 + x # Do I need this?
         else:
             x %= 26
     elif x > 25:
@@ -56,10 +55,6 @@ def isAnagram(a,b,x):
     return True if (shifted_sorted_array_a == sorted_array_b
                     or sorted_array_a == shifted_sorted_array_b
                     or shifted_sorted_array_a == shifted_sorted_array_b) else False
-    #
-    # return True if ("".join(shifted_sorted_array_a) == "".join(sorted_array_b)
-    #                 or "".join(sorted_array_a) == "".join(shifted_sorted_array_b)
-    #                 or "".join(shifted_sorted_array_a) == "".join(shifted_sorted_array_b)) else False
 
 if __name__ == "__main__":
     a,b,x = sys.argv[1], sys.argv[2], sys.argv[3]

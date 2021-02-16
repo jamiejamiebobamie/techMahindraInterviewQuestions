@@ -12,9 +12,9 @@ class SetTestSolutions(unittest.TestCase):
         # standard example:
         assert funnySort([1, 7, 2, 3, 19, 5]) == [19, 7, 1, 2, 5, 3]
         # incorrect input:
-        assert funnySort(1) == "Parameter must be a string or an array."
+        assert funnySort(1) == "Parameter must be an array."
         # string:
-        assert funnySort("Hi") == ["i","H"]
+        assert funnySort("Hi") == "Parameter must be an array."
         # single-item array:
         assert funnySort([1]) == [1]
         # single-item floating point array:
@@ -26,6 +26,7 @@ class SetTestSolutions(unittest.TestCase):
         assert distantODDNumbers([9, 2, 3, 3, 4]) == [3, 2, 3, 4, 9]
         # incorrect input:
         assert distantODDNumbers(1) == "Parameter must be an array."
+        assert distantODDNumbers("hhhh") == "Parameter must be an array."
 
     def test_isAnagram(self):
         # standard example:
@@ -48,7 +49,9 @@ class SetTestSolutions(unittest.TestCase):
         # standard example:
         assert highestSumList(array) == [1, 5, 2, 3]
         # incorrect input:
-        highestSumList("array") == []
+        highestSumList([1,2,2]) == "Input must be 2-D array."
+        highestSumList("array") == "Input must be 2-D array."
+        highestSumList(1) == "Input must be 2-D array."
 
     def test_sumOfPrimes(self):
         # standard example:
