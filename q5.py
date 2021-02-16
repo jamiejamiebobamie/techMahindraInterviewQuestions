@@ -44,6 +44,9 @@ def sumOfPrimes(number):
         # if the list of primes too choose from is empty, there is no solution.
         if not len(remaining_primes):
             return
+        # if the sum of the numbers in _current_sums is larger than the number
+        if number < sum(_current_sums):
+            return
 
         # we need deep copies otherwise mutiple stack frames would be
             # operating on the same object
@@ -74,7 +77,7 @@ def sumOfPrimes(number):
     # build the set.
     build_primes(number)
 
-    sorted_primes = sorted(list(_primes))
+    sorted_primes = _primes
     # build the set / solve.
     add_primes(sorted_primes, [])
 
