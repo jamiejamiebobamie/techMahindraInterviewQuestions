@@ -49,9 +49,9 @@ class SetTestSolutions(unittest.TestCase):
         # standard example:
         assert highestSumList(array) == [1, 5, 2, 3]
         # incorrect input:
-        highestSumList([1,2,2]) == "Input must be 2-D array."
-        highestSumList("array") == "Input must be 2-D array."
-        highestSumList(1) == "Input must be 2-D array."
+        assert highestSumList([1,2,2]) == "Input must be 2-D array."
+        assert highestSumList("array") == "Input must be 2-D array."
+        assert highestSumList(1) == "Input must be 2-D array."
 
     def test_sumOfPrimes(self):
         # standard example:

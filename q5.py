@@ -85,5 +85,5 @@ def sumOfPrimes(number):
     return list(list(solutions)[0]) if len(solutions) else "NO SOLUTION based on the restrictions"
 
 if __name__ == "__main__":
-    number = sys.argv[1]
+    number = int(sys.argv[1])
     print(sumOfPrimes(number))
